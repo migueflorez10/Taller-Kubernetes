@@ -1,0 +1,13 @@
+# api-peliculas-service.yml
+apiVersion: v1
+kind: Service
+metadata:
+  name: api-peliculas-service
+spec:
+  selector:
+    app: api-peliculas
+  ports:
+  - protocol: TCP
+    port: 8001
+    targetPort: 5000
+  type: LoadBalancer  # Utiliza LoadBalancer para exponer el servicio a través de un balanceador de carga

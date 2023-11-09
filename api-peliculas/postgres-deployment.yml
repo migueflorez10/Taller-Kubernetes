@@ -1,0 +1,28 @@
+# postgres-deployment.yml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: postgres
+spec:
+  replicas: 1  # Ajusta el número de réplicas según tus necesidades
+  selector:
+    matchLabels:
+      app: postgres
+  template:
+    metadata:
+      labels:
+        app: postgres
+    spec:
+      containers:
+      - name: postgres
+        image: postgres:latest  # Utiliza la imagen oficial de PostgreSQL
+        env:
+        - name: POSTGRES_DB
+          value: ApiPeliculas
+        - name: POSTGRES_USER
+          value: postgres
+        - name: POSTGRES_PASSWORD
+          value: miguel123
+        ports:
+        - containerPort: 5432
+

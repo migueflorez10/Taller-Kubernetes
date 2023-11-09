@@ -1,0 +1,20 @@
+# api-peliculas-deployment.yml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api-peliculas
+spec:
+  replicas: 10  # Ajusta el número de réplicas según tus necesidades
+  selector:
+    matchLabels:
+      app: api-peliculas
+  template:
+    metadata:
+      labels:
+        app: api-peliculas
+    spec:
+      containers:
+      - name: api-peliculas
+        image: migueflorez10/api-peliculas:v2
+        ports:
+        - containerPort: 5000
